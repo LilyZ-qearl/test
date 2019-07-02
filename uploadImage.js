@@ -1,4 +1,4 @@
-const uploadBlobToOssAsync = (Blob, name, dir) => {
+const uploadBlobToOssAsync = function (Blob, name, dir) => {
   return new Promise((resolove,reject) => {
     const ossSignServerAddress = 'https://api-upload.你的域名/xm/oss/web/token?bucket=iamge';
     const xhr = new XMLHttpRequest();
@@ -53,3 +53,21 @@ const uploadBlobToOssAsync = (Blob, name, dir) => {
   return new Blob([bytesCode], { type: imgtype });
  }
  
+ const imageCompressUpload = function (url) => {
+   return new Promise ((resolve,reject) => {
+     const image = new Image();
+     image.setAttribute("crossOrign","Anonymous");
+     image.onload = () => {
+       const width = image.naturalWidth;
+       const height = image.naturalHeight;
+       const canvas = document.createElement('canvas');
+       const context = canvas.getContext('2d');
+       canvas.width = 500;
+       canvas.height = height / width * 500;
+       context.drawImage(image,0,0,canvas.width,canvas.height);
+       const base64URL = canvas.toDataURL('image/jpge');
+       const blob = convertBase64ToBlob(base64URL);
+       resolve(uploadBlobToOSSAsync(blob,'compress' + new Date().valueOf()));
+     }
+   })
+ }

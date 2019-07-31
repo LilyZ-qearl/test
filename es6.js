@@ -18,3 +18,14 @@ Array.from
 Array.find
 findIndex（）
 
+五、函数
+1. 接受默认值
+2. 展开操作符
+3. 剩余操作符
+4. 箭头函数
+
+六、Object
+Object.is
+Object.assign
+Object.setPrototypeOf
+

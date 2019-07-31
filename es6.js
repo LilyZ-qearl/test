@@ -9,4 +9,12 @@ const [name,age=1] =['yyy',8];
 const {name,age} = {name:'yyy',age:8};
 
 三 字符串
-1.includes(): fanhu
+1.includes(): 返回布尔值，表示是否找到了参数字符串
+2.startWith(): 返回布尔值，表示参数字符串是否在源字符串的头部
+3.endsWith(): 返回布尔值，表示参数字符串是否咋u原字符串的尾部
+
+四、Array
+Array.from
+Array.find
+findIndex（）
+
